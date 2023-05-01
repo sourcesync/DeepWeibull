@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import random
 import math
+import os
 from pycox.datasets import metabric, support, rr_nl_nhp
 
 """
@@ -14,6 +15,8 @@ def normalise(df, colnames):
     
 def make_train_test(df, train_frac, dataset, n_splits=3):
 
+    os.makedirs( "datasets/" + dataset, exist_ok=True)
+ 
     full_file_path = "datasets/" + dataset + "/full.csv"
     df.to_csv(full_file_path, index=False)
     
