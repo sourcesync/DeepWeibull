@@ -12,7 +12,10 @@ from deep_hit import deep_hit
 from deep_hit_zero_alpha import deep_hit_zero_alpha
 from pycox.datasets import metabric
 
-models=["regression_weibull","deep_weibull","deep_hit"]
+#GW
+#models=["regression_weibull","deep_weibull","deep_hit"]
+models=["deep_weibull"]
+#GW
 
 """
 data = {
@@ -40,6 +43,7 @@ for train_frac in np.arange(0.60, 0.70, 0.05).tolist():
 
             # run the model
             f_model = globals()[model]
+            print("about to train")
             result = f_model("metabric_temp", split)
 
             # get evaluation object
