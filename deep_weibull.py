@@ -9,8 +9,12 @@ import tensorflow as tf
 from keras.models import Sequential
 from keras import initializers
 from keras.layers import Dense, LSTM, Activation, Masking, Dropout
-from keras.layers.normalization import BatchNormalization
-from keras.callbacks.callbacks import EarlyStopping
+#GW
+#from keras.layers.normalization import BatchNormalization
+from tensorflow.keras.layers import BatchNormalization
+#from keras.callbacks.callbacks import EarlyStopping
+from tensorflow.keras.callbacks import EarlyStopping
+#GW
 from keras.optimizers import RMSprop
 from keras import backend as k
 

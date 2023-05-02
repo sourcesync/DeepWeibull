@@ -23,9 +23,11 @@ results_df = pd.DataFrame(data)
 results_df.to_csv("metabric_size_results.csv")
 """
 
-results_df = pd.read_csv("metabric_size_results.csv")
+#GW results_df = pd.read_csv("metabric_size_results.csv")
+results_df = pd.DataFrame()
 
-for train_frac in np.arange(0.60, 0.70, 0.05).tolist():
+#GW for train_frac in np.arange(0.60, 0.70, 0.05).tolist():
+for train_frac in np.arange(0.05, 0.70, 0.05).tolist():
 
     df = metabric.read_df() # read in dataset
     df = normalise(df, ['x0', 'x1', 'x2', 'x3', 'x8']) # normalise cols where appropriate
@@ -67,12 +69,14 @@ l1 = ax.plot(results_rw["train_frac"], results_rw["mean_c"], color="blue")[0]
 l2 = ax.plot(results_dw["train_frac"], results_dw["mean_c"], color="orange")[0]
 l3 = ax.plot(results_dh["train_frac"], results_dh["mean_c"], color="green")[0]
 
-ax.legend([l1, l3, l3],     # The line objects
+#GW ax.legend([l1, l3, l3],     # The line objects
+ax.legend([l1, l2, l3],     # The line objects
            labels=["RegressionWeibull","DeepWeibull","DeepHit"]  # The labels for each line
            )
 
 plt.xlabel('Proportion of individuals in training set (%)')
 plt.ylabel(r'$c$'+"-index")
 
-plot_file_path = "plots/real_data_experiments/metabric_training_size.pdf"
+#GW plot_file_path = "plots/real_data_experiments/metabric_training_size.pdf"
+plot_file_path = "plots/real_data_experiments/metabric_training_size.png"
 plt.savefig(plot_file_path)
